@@ -115,7 +115,7 @@ bool Game::OnUpdate(float deltaTime)
     {
         
         --m_lives;
-        displayHangman(m_lives);
+
         if (m_lives <= 0)
         {
             m_gameState = GameState::FINISH;
@@ -123,9 +123,7 @@ bool Game::OnUpdate(float deltaTime)
             return true;
         }
     }
-    else {
-        displayHangman(m_lives);
-    }
+    
 
     bool wordGuessed = true;
     for (bool letterGuessed : m_guessedLetters)
@@ -151,6 +149,8 @@ bool Game::OnUpdate(float deltaTime)
 
 void Game::OnRender()
 {
+    system("cls");
+    displayHangman(m_lives);
     for (size_t i = 0; i < m_word.size(); ++i)
     {
         if (m_guessedLetters[i])
@@ -163,7 +163,7 @@ void Game::OnRender()
         }
     }
     cout << "\nPozostale zycie: " << m_lives << endl;
-    cout <<"========================================================================" << endl;
+
 }
 
 void Game::OnShutdown()
