@@ -29,4 +29,5 @@ private:
 	GameState m_gameState = GameState::START;
 	int m_lives;
 	string m_currentGuess;
+	vector<char> usedLetters;
 };

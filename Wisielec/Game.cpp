@@ -90,10 +90,12 @@ void Game::OnInput()
 	char guess;
 	cin >> guess;
 	m_currentGuess = guess;
+    usedLetters.push_back(guess);
 }
 
 bool Game::OnUpdate(float deltaTime)
 {
+    system("cls");
     if (m_gameState == GameState::START)
     {
         m_gameState = GameState::UPDATE;
@@ -149,8 +151,13 @@ bool Game::OnUpdate(float deltaTime)
 
 void Game::OnRender()
 {
-    system("cls");
+
     displayHangman(m_lives);
+    cout << "Uzyte litery: ";
+    for (char letter : usedLetters) {
+        cout << letter << " ";
+    }
+    cout << endl;
     for (size_t i = 0; i < m_word.size(); ++i)
     {
         if (m_guessedLetters[i])

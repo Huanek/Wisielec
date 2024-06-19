@@ -28,7 +28,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Desktop\words.txt">
+    <Text Include="Text.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
