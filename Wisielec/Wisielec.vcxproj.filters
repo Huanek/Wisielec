@@ -18,7 +18,7 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mian.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -28,7 +28,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="words.txt">
+    <Text Include="..\..\..\..\Desktop\words.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

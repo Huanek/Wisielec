@@ -27,4 +27,6 @@ private:
 	vector<string> m_wordsPool;
 	vector<bool> m_guessedLetters;
 	GameState m_gameState = GameState::START;
+	int m_lives;
+	string m_currentGuess;
 };
