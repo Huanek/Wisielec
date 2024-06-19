@@ -1,0 +1,5 @@
+kolor
+silnik
+wzorzec
+silnie
+kanapka

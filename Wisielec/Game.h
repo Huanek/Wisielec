@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <fstream>
 
+using namespace std;
 
 class Game
 {
@@ -18,11 +20,11 @@ public:
 	bool OnUpdate(float deltaTime);
 	void OnRender();
 	void OnShutdown();
+	void LoadWordsFromFile(const string& filename);
 
 private:
-	std::string m_word;
-	std::vector<std::string> m_wordsPool = { "kolor", "silnik", "wzorzec", "silnie", "kanapka" };
-	std::vector<bool> m_guessedLetters;
+	string m_word;
+	vector<string> m_wordsPool;
+	vector<bool> m_guessedLetters;
 	GameState m_gameState = GameState::START;
-
 };

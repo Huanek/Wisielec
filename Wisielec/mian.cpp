@@ -33,6 +33,7 @@ int main()
 
 void Initialize()
 {
+	g_game.LoadWordsFromFile("words.txt");
 	g_game.OnInit();
 }
 
