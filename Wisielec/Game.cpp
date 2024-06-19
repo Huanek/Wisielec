@@ -4,6 +4,73 @@
 #include <ctime>
 
 using namespace std;
+void displayHangman(int guessesLeft) {
+    switch (guessesLeft) {
+    case 6:
+        cout << "  +---+\n"
+            << "  |   |\n"
+            << "      |\n"
+            << "      |\n"
+            << "      |\n"
+            << "      |\n"
+            << "=========\n";
+        break;
+    case 5:
+        cout << "  +---+\n"
+            << "  |   |\n"
+            << "  O   |\n"
+            << "      |\n"
+            << "      |\n"
+            << "      |\n"
+            << "=========\n";
+        break;
+    case 4:
+        cout << "  +---+\n"
+            << "  |   |\n"
+            << "  O   |\n"
+            << "  |   |\n"
+            << "      |\n"
+            << "      |\n"
+            << "=========\n";
+        break;
+    case 3:
+        cout << "  +---+\n"
+            << "  |   |\n"
+            << "  O   |\n"
+            << " /|   |\n"
+            << "      |\n"
+            << "      |\n"
+            << "=========\n";
+        break;
+    case 2:
+        cout << "  +---+\n"
+            << "  |   |\n"
+            << "  O   |\n"
+            << " /|\\  |\n"
+            << "      |\n"
+            << "      |\n"
+            << "=========\n";
+        break;
+    case 1:
+        cout << "  +---+\n"
+            << "  |   |\n"
+            << "  O   |\n"
+            << " /|\\  |\n"
+            << " /    |\n"
+            << "      |\n"
+            << "=========\n";
+        break;
+    case 0:
+        cout << "  +---+\n"
+            << "  |   |\n"
+            << "  O   |\n"
+            << " /|\\  |\n"
+            << " / \\  |\n"
+            << "      |\n"
+            << "=========\n";
+        break;
+    }
+}
 
 void Game::OnInit()
 {
@@ -19,7 +86,7 @@ void Game::OnInit()
 
 void Game::OnInput()
 {
-	cout << "Enter a letter: ";
+	cout << "Podaj litere: ";
 	char guess;
 	cin >> guess;
 	m_currentGuess = guess;
@@ -39,18 +106,25 @@ bool Game::OnUpdate(float deltaTime)
         {
             m_guessedLetters[i] = true;
             correctGuess = true;
+           
         }
     }
 
+
     if (!correctGuess)
     {
+        
         --m_lives;
+        displayHangman(m_lives);
         if (m_lives <= 0)
         {
             m_gameState = GameState::FINISH;
             cout << "Przegrana! Slowo do odgadnieca to: " << m_word << endl;
             return true;
         }
+    }
+    else {
+        displayHangman(m_lives);
     }
 
     bool wordGuessed = true;
@@ -88,7 +162,8 @@ void Game::OnRender()
             cout << "_ ";
         }
     }
-    cout << "\nLives remaining: " << m_lives << endl;
+    cout << "\nPozostale zycie: " << m_lives << endl;
+    cout <<"========================================================================" << endl;
 }
 
 void Game::OnShutdown()
@@ -106,3 +181,6 @@ void Game::LoadWordsFromFile(const string& filename)
 		m_wordsPool.push_back(word);
 	}
 }
+
+
+
